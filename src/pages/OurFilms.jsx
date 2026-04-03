@@ -5,11 +5,9 @@ import avan from '../assets/films/avan.png'
 import adayalam from '../assets/films/IMG_7970.jpg'
 import jeevan from '../assets/films/jeevan.jpeg'
 import ant from '../assets/films/ant.jpeg'
-
-
-
-
 import shawdowimg from '../assets/upcoming/hqdefault.png'
+
+
 import away from '../assets/upcoming/away.png'
 
 
@@ -17,7 +15,6 @@ import away from '../assets/upcoming/away.png'
 
 // 1. Upcoming Films Data
 const upcoming = [
-  { id: 1, title: 'Shadows of the past', thumb: shawdowimg, youtubeLink: 'https://www.youtube.com/watch?v=OMNb5Oj8MZg', color: '#2a2a2a' },
   { id: 2, title: 'An open gate away', thumb: away, youtubeLink: null, color: '#2a2a2a' },
 
 ]
@@ -28,6 +25,8 @@ const allFilms = [
   { id: 2, title: 'Adayalam', thumb: adayalam, youtubeLink: null, color: '#2a2a2a' },
   { id: 3, title: 'Jeevan Marana Porattam', thumb: jeevan, youtubeLink: 'https://www.imdb.com/title/tt37807271/', color: '#2a2a2a' },
   { id: 4, title: 'An Ode to black ants', thumb: ant, youtubeLink: null, color: '#2a2a2a' },
+  { id: 5, title: 'Shadows of the past', thumb: shawdowimg, youtubeLink: 'https://www.youtube.com/watch?v=OMNb5Oj8MZg', color: '#2a2a2a' },
+
 
 
 

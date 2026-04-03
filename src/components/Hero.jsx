@@ -64,9 +64,9 @@ const ShuffleText = ({ text, isActive }) => {
 };
 
 const slidesData = [
-  { id: 1, image: image7 , isUpcoming: true},
+  { id: 1, image: image7},
   { id: 2, image: image2},
-  { id: 3, image: image1 , isUpcoming: true},
+  { id: 3, image: image1},
   { id: 4, image: image4},
   { id: 5, image: image5},
   { id: 6, image: image6},
