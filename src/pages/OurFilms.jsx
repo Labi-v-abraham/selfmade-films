@@ -15,20 +15,21 @@ import away from '../assets/upcoming/away.png'
 
 // 1. Upcoming Films Data
 const upcoming = [
-  { id: 2, title: 'An open gate away', thumb: away, youtubeLink: null, color: '#2a2a2a' },
+  { id: 1, title: 'Adayalam', thumb: adayalam, youtubeLink: null, color: '#2a2a2a' },
+  { id: 2, title: 'An Ode to black ants', thumb: ant, youtubeLink: null, color: '#2a2a2a' },
+  { id: 3, title: 'Jeevan Marana Porattam', thumb: jeevan, youtubeLink: 'https://www.imdb.com/title/tt37807271/', color: '#2a2a2a' },
 
 ]
 
 // 2. Flattened Data: All released films
 const allFilms = [
   { id: 1, title: 'Avanum Avalum', thumb: avan, youtubeLink: 'https://www.youtube.com/watch?v=YocNLRqP2fQ&t=1s', color: '#2a2a2a' },
-  { id: 2, title: 'Adayalam', thumb: adayalam, youtubeLink: null, color: '#2a2a2a' },
-  { id: 3, title: 'Jeevan Marana Porattam', thumb: jeevan, youtubeLink: 'https://www.imdb.com/title/tt37807271/', color: '#2a2a2a' },
-  { id: 4, title: 'An Ode to black ants', thumb: ant, youtubeLink: null, color: '#2a2a2a' },
-  { id: 5, title: 'Shadows of the past', thumb: shawdowimg, youtubeLink: 'https://www.youtube.com/watch?v=OMNb5Oj8MZg', color: '#2a2a2a' },
+  { id: 2, title: 'Shadows of the past', thumb: shawdowimg, youtubeLink: 'https://www.youtube.com/watch?v=OMNb5Oj8MZg', color: '#2a2a2a' },
 
+]
 
-
+const inDevelopment = [
+  { id: 1, title: 'An open gate away', thumb: away, youtubeLink: null, color: '#2a2a2a' },
 
 ]
 
@@ -150,6 +151,27 @@ export default function OurFilms() {
         </div>
       </ScrollReveal>
       
+
+      {/* --- IN DEVELOPMENT FILMS SECTION --- */}
+      {inDevelopment && inDevelopment.length > 0 && (
+        <ScrollReveal as="section" className={styles.section} style={{ marginBottom: '80px' }} once={false}>
+          <div className={styles.directorHeader}>
+            <h2 className={styles.directorName} style={{ color: '#fff', fontSize: '24px' }}>
+              In Development
+            </h2>
+          </div>
+
+          <div className={styles.filmGrid}>
+            <div className={styles.gridInner}>
+              {inDevelopment.map((film, i) => (
+                <ScrollReveal key={`inDevelopment-${film.id}`} delay={i * 70} className={styles.filmCardReveal}>
+                  <FilmCard film={film} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+      )}
     </main>
   )
 }

@@ -157,10 +157,7 @@ export default function Hero() {
         })}
       </div>
       
-      <div className="showreel-badge">
-        <div className="badge-text">PLAY REEL</div>
-        <div className="play-icon">▶</div>
-      </div>
+     
     </div>
   );
 }
