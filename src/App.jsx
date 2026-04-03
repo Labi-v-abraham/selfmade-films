@@ -57,7 +57,7 @@ function App() {
         <Loader onComplete={() => setIntroFinished(true)} />
       </section>
 
-      <Navbar />
+      <Navbar isVisible={introFinished}/>
 
       <main>
         <ScrollReveal as="section" id="home" once={false}>

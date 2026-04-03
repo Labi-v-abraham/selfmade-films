@@ -4,9 +4,7 @@ import styles from './SpeakToUs.module.css'
 
 const contacts = [
   {
-    name: 'Allen Thomas',
-    role: 'Producer/Director',
-    phone: '+1 (416) 319 - 7342',
+   
     email: 'smadefilms@gmail.com',
   },
 ]
@@ -36,20 +34,16 @@ export default function SpeakToUs() {
             
             <ScrollReveal delay={50} className={styles.introBlock} once={false}>
               <p>
-                Got a story to tell or a project to pitch? We're always looking to collaborate with passionate creators.
-              </p>
+                Got a story to tell or a project to pitch? We're always looking to collaborate with passionate creators.</p>
             </ScrollReveal>
 
             <div className={styles.contactList}>
               {contacts.map((c, i) => (
                 <ScrollReveal key={c.email} delay={i * 100} className={styles.contactBlock} once={false}>
-                  <p className={styles.contactName}>{c.name} – {c.role}:</p>
-                  <p className={styles.contactDetail}>
-                    <a href={`tel:${c.phone.replace(/\s/g,'')}`}>{c.phone}</a>
-                  </p>
-                  <p className={styles.contactDetail}>
+                  <p >
                     <a href={`mailto:${c.email}`}>{c.email}</a>
                   </p>
+                  <p>North America | Asia</p>
                 </ScrollReveal>
               ))}
             </div>

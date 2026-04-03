@@ -35,14 +35,14 @@ const CompanyLogo = () => (
   </svg>
 )
 
-export default function Navbar() {
+export default function Navbar({ isVisible }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isVisible ? styles.visible : ''}`}>
       {/* Mobile Hamburger Button */}
       <button 
         className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
