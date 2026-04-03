@@ -1,16 +1,4 @@
 import { useState } from 'react'
-import {
-  IconClapboard,
-  IconDirectorChair,
-  IconFilmReel,
-  IconFilmStrip,
-  IconMegaphone,
-  IconSoundWaves,
-  IconSparkle,
-  IconSpotlight,
-  IconTripod,
-  IconVideoCamera,
-} from './NavbarIcons'
 import styles from './Navbar.module.css'
 
 // Company wordmark
@@ -66,19 +54,11 @@ export default function Navbar() {
         <span></span>
       </button>
 
-      {/* Desktop Left Decorative Icons (Hidden on mobile) */}
-      <div className={styles.navDecorScatter} aria-hidden>
-        <IconFilmReel className={`${styles.navIcon} ${styles.scatterIcon} ${styles.decorA}`} />
-        <IconSparkle className={`${styles.navIcon} ${styles.scatterIcon} ${styles.decorB}`} />
-        <IconVideoCamera className={`${styles.navIcon} ${styles.scatterIcon} ${styles.decorC}`} />
-        <IconTripod className={`${styles.navIcon} ${styles.scatterIcon} ${styles.decorD}`} />
-      </div>
-
       {/* Navigation Links Wrapper (Controls mobile slide-down overlay) */}
       <div className={`${styles.navMenuWrapper} ${isMenuOpen ? styles.navOpen : ''}`}>
         <div className={styles.heroText}>
           
-          <span className={styles.navGroupScatter}>
+          <span className={styles.navGroup}>
             <a
               href="#Our-films"
               onClick={closeMenu}
@@ -86,12 +66,9 @@ export default function Navbar() {
             >
               our films
             </a>
-            <IconFilmStrip className={`${styles.navIcon} ${styles.scatterIcon} ${styles.filmsA}`} />
-            <IconFilmReel className={`${styles.navIcon} ${styles.scatterIcon} ${styles.filmsB}`} />
-            <IconSparkle className={`${styles.navIcon} ${styles.scatterIcon} ${styles.filmsC}`} />
           </span>
 
-          <span className={styles.navGroupScatter}>
+          <span className={styles.navGroup}>
             <a
               href="#talk"
               onClick={closeMenu}
@@ -99,13 +76,9 @@ export default function Navbar() {
             >
               talk
             </a>
-            <IconSpotlight className={`${styles.navIcon} ${styles.scatterIcon} ${styles.connectA}`} />
-            <IconSoundWaves className={`${styles.navIcon} ${styles.scatterIcon} ${styles.connectB}`} />
-            <IconMegaphone className={`${styles.navIcon} ${styles.scatterIcon} ${styles.connectC}`} />
-            <IconVideoCamera className={`${styles.navIcon} ${styles.scatterIcon} ${styles.connectD}`} />
           </span>
 
-          <span className={styles.navGroupScatter}>
+          <span className={styles.navGroup}>
             <a
               href="#about-us"
               onClick={closeMenu}
@@ -113,24 +86,17 @@ export default function Navbar() {
             >
               about us
             </a>
-            <IconClapboard className={`${styles.navIcon} ${styles.scatterIcon} ${styles.studioA}`} />
-            <IconDirectorChair className={`${styles.navIcon} ${styles.scatterIcon} ${styles.studioB}`} />
-            <IconTripod className={`${styles.navIcon} ${styles.scatterIcon} ${styles.studioC}`} />
-            <IconSparkle className={`${styles.navIcon} ${styles.scatterIcon} ${styles.studioD}`} />
           </span>
         </div>
       </div>
 
       {/* Logo (Stays visible on mobile header) */}
-      <div className={styles.logoScatter}>
+      <div className={styles.logoContainer}>
         <div className={styles.logoWordmark}>
           <a href="#home" onClick={closeMenu}>
             <CompanyLogo />
           </a>
         </div>
-        <IconSparkle className={`${styles.navIcon} ${styles.scatterIcon} ${styles.logoA}`} />
-        <IconSpotlight className={`${styles.navIcon} ${styles.scatterIcon} ${styles.logoB}`} />
-        <IconFilmReel className={`${styles.navIcon} ${styles.scatterIcon} ${styles.logoC}`} />
       </div>
     </header>
   )
