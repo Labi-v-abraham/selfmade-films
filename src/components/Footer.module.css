@@ -1,0 +1,92 @@
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px));
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.archiveBtn {
+  background: #2a2a2a;
+  border: none;
+  border-radius: 12px;
+  padding: 20px 60px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+
+.archiveBtn:hover {
+  background: #333;
+}
+
+.socialRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.followText {
+  font-size: 14px;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: white;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: #555;
+}
+
+.socialIcons a {
+  color: white;
+  transition: opacity 0.2s;
+}
+
+.socialIcons a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    gap: 32px;
+    padding-bottom: max(32px, env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 768px) {
+  .archiveBtn {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 24px;
+    font-size: 20px;
+  }
+
+  .socialIcons {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .archiveBtn {
+    max-width: none;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+}
+

@@ -1,0 +1,80 @@
+.page {
+  padding: 80px clamp(20px, 5vw, 60px) 80px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.section {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 ;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 36px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactName {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.contactDetail {
+  font-size: 15px;
+  font-weight: 300;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.contactDetail a {
+  color: #cccccc;
+  transition: color 0.2s;
+}
+
+.contactDetail a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 1000px) {
+  .page {
+    padding: 120px clamp(18px, 4vw, 32px) 72px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 100px 20px 60px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 28px;
+  }
+
+  .contactList {
+    gap: 28px;
+  }
+
+  .contactName,
+  .contactDetail {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}

@@ -1,0 +1,386 @@
+.page {
+  padding: 80px clamp(20px, 5vw, 60px) 80px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.section {
+  margin-top: 60px;
+}
+
+.directorHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.avatarCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid #555;
+}
+
+.avatarInitial {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.directorName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
+.filmGrid {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.gridInner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  flex: 1;
+}
+
+.filmCardReveal {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.filmCardReveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -8px; /* Places it exactly in the middle of your 16px grid gap */
+  width: 1px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.15); /* A subtle cinematic white line */
+}
+
+/* Default 4-column layout: Hide line on the 4th, 8th items */
+.filmCardReveal:nth-child(4n)::after {
+  display: none;
+}
+
+.filmCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+.thumbnailLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  padding: 8px;
+}
+
+.labelLine {
+  display: block;
+  font-size: clamp(16px, 2.5vw, 28px);
+  font-weight: 900;
+  color: #f5c842;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.labelSub {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.watermark {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 8px;
+  max-width: 70%;
+  text-align: right;
+  line-height: 1.2;
+  font-weight: 600;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+
+.filmTitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #dddddd;
+  line-height: 1.4;
+}
+
+/* Nav buttons */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  z-index: 10;
+  font-size: 42px;
+  color: rgba(255,255,255,0.5);
+  width: 40px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.navBtn:hover {
+  color: #ffffff;
+}
+
+.navLeft {
+  left: -48px;
+}
+
+.navRight {
+  right: -48px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.archiveBtn {
+  background: #2a2a2a;
+  border: none;
+  border-radius: 12px;
+  padding: 20px 60px;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+
+.archiveBtn:hover {
+  background: #333;
+}
+
+.socialRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.followText {
+  font-size: 14px;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: white;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: #555;
+}
+
+.socialIcons a {
+  color: white;
+  transition: opacity 0.2s;
+}
+
+.socialIcons a:hover {
+  opacity: 0.7;
+}
+
+/* Tablet / small laptop — order matters: wider breakpoints first */
+@media (max-width: 1200px) {
+  .page {
+    padding: 120px clamp(18px, 4vw, 32px) 48px;
+  }
+
+  .section {
+    margin-top: 48px;
+  }
+
+  .gridInner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .navLeft {
+    left: -36px;
+  }
+
+  .navRight {
+    right: -36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 120px clamp(16px, 4vw, 24px) 40px;
+  }
+
+  .gridInner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navLeft {
+    left: -24px;
+  }
+
+  .navRight {
+    right: -24px;
+  }
+}
+
+/* Tablet portrait / large phone */
+@media (max-width: 768px) {
+  .page {
+    padding: 100px clamp(14px, 4vw, 20px) 36px;
+  }
+
+  .directorHeader {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .avatarCircle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatarInitial {
+    font-size: 16px;
+  }
+
+  .directorName {
+    font-size: 16px;
+  }
+
+  .filmGrid {
+    align-items: stretch;
+  }
+
+  .gridInner {
+    gap: 12px;
+  }
+
+  .filmTitle {
+    font-size: 12px;
+  }
+  .filmCardReveal::after {
+    display: none;
+  }
+
+  .navBtn {
+    position: static;
+    transform: none;
+    width: 36px;
+    height: auto;
+    font-size: 30px;
+    line-height: 1;
+    align-self: center;
+  }
+
+  .navLeft,
+  .navRight {
+    left: auto;
+    right: auto;
+  }
+
+  .archiveBtn {
+    width: 100%;
+    max-width: 360px;
+    padding: 16px 24px;
+    font-size: 20px;
+  }
+
+  .socialIcons {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 100px max(12px, env(safe-area-inset-right, 0px)) 32px max(12px, env(safe-area-inset-left, 0px));
+  }
+
+  .section {
+    margin-top: 36px;
+  }
+
+  .gridInner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .navBtn {
+    font-size: 26px;
+    width: 30px;
+  }
+
+  .footer {
+    margin-top: 56px;
+    gap: 30px;
+  }
+
+  .archiveBtn {
+    max-width: none;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+}
