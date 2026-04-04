@@ -27,8 +27,9 @@
 
 .carousel-item {
   position: absolute; 
-  top: 0;
-  height: 100%;
+  top: 5%;
+  height: 90%;
+  aspect-ratio: 2 / 3;
   transform: translateX(-50%); 
   border-radius: 4px;
   overflow: hidden;
@@ -38,20 +39,20 @@
 /* Coordinates */
 /* Coordinates (3D Version) */
 .pos-center { 
-  left: 50%; width: 55vw; z-index: 10; opacity: 1; pointer-events: auto; cursor: default; 
+  left: 50%;  z-index: 10; opacity: 1; pointer-events: auto; cursor: default; 
   cursor: pointer;
   transform: translateX(-50%) translateZ(0px) rotateY(0deg);
   box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* Adds a pop to the active card */
 }
 
 .pos-right-1 { 
-  left: 75%; width: 35vw; z-index: 9; opacity: 0.8; cursor: pointer; 
+  left: 75%;  z-index: 9; opacity: 0.8; cursor: pointer; 
   /* Pushed back and tilted to the left */
   transform: translateX(-50%) translateZ(-250px) rotateY(-35deg); 
 }
 
 .pos-left-1 { 
-  left: 25%; width: 35vw; z-index: 9; opacity: 0.8; cursor: pointer; 
+  left: 25%;  z-index: 9; opacity: 0.8; cursor: pointer; 
   /* Pushed back and tilted to the right */
   transform: translateX(-50%) translateZ(-250px) rotateY(35deg); 
 }
@@ -176,12 +177,14 @@
   
   /* Make the cards shorter on mobile so they don't look like slivers */
   .carousel-item {
-    height: 60vh; 
-    top: 80px; /* Centers the 60vh card vertically */
+    height: 65vh; /* Gives the poster a good height on mobile */
+    top: 50%; /* Centers vertically */
+    transform: translate(-50%, -50%); /* Adjust transform for true centering */
+    aspect-ratio: 2 / 3;
   }
   
   .pos-center {
-    width: 88vw; 
+    
     transform: translateX(-50%) translateZ(0px) rotateY(0deg);
     
   }
@@ -192,10 +195,10 @@
 }
 
   /* Push side items almost completely off screen */
-  .pos-left-1 { left: 10%; width: 45vw;
+  .pos-left-1 { left: 10%;
     transform: translateX(-50%) translateZ(-150px) rotateY(40deg);
   }
-  .pos-right-1 { left: 98%; width: 45vw; 
+  .pos-right-1 { left: 98%; 
     transform: translateX(-50%) translateZ(-150px) rotateY(-40deg);
   }
 
