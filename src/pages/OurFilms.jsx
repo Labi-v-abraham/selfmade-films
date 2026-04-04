@@ -36,9 +36,15 @@ const inDevelopment = [
 const FILMS_PER_PAGE = 8
 
 function FilmCard({ film }) {
+  const handleClick = (e) => {
+    if (!film.youtubeLink) {
+      e.preventDefault();
+    }
+  }
   return (
     <a 
       href={film.youtubeLink || '#'} 
+      onClick={handleClick}
       target={film.youtubeLink ? "_blank" : "_self"} 
       rel="noopener noreferrer"
       className={styles.filmCardWrapper}

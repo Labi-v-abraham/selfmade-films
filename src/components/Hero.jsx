@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 import image1 from '../assets/carousel/Shadows of the past v1.png';
 import image2 from '../assets/carousel/Second FINAL.jpg';
@@ -7,71 +7,15 @@ import image5 from '../assets/carousel/PHOTO-2026-03-23-20-46-12.jpg';
 import image6 from '../assets/carousel/IMG_8294.jpg';
 import image7 from '../assets/carousel/IMG_8300.png';
 
-
-
-
-
 import textpattern from '../assets/pattern/liquid glass.png';
 
-
-// This handles the matrix/scramble effect when a slide becomes active
-// This handles the matrix/scramble effect when a slide becomes active
-const ShuffleText = ({ text, isActive }) => {
-  const [displayText, setDisplayText] = useState('');
-  
-  // Removed numbers and symbols for a smoother, cleaner cinematic look
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  useEffect(() => {
-    if (!isActive) {
-      setDisplayText('');
-      return;
-    }
-
-    let iteration = 0;
-    let interval = null;
-
-    clearInterval(interval);
-
-    // INCREASED to 50ms (from 30ms) to make the frame-rate of the text swapping smoother
-    interval = setInterval(() => {
-      setDisplayText((prev) =>
-        text
-          .split("")
-          .map((letter, index) => {
-            if (index < iteration) {
-              return text[index]; // The correct letter
-            }
-            // The random scrambling letter
-            return letters[Math.floor(Math.random() * letters.length)];
-          })
-          .join("")
-      );
-
-      if (iteration >= text.length) {
-        clearInterval(interval);
-      }
-
-      // DECREASED to 1/12 (from 1/4) so the final word reveals much slower.
-      // This gives it a really nice "eased" feeling as it decodes.
-      iteration += 1 / 12; 
-    }, 50); 
-
-    return () => clearInterval(interval);
-  }, [isActive, text]);
-
-  return <span className="upcoming-badge">{displayText}</span>;
-};
-
 const slidesData = [
-  { id: 1, image: image7},
-  { id: 2, image: image2},
-  { id: 3, image: image1},
-  { id: 4, image: image4},
-  { id: 5, image: image5},
-  { id: 6, image: image6},
-
-
+  { id: 1, image: image7 },
+  { id: 2, image: image2 },
+  { id: 3, image: image1 },
+  { id: 4, image: image4 },
+  { id: 5, image: image5 },
+  { id: 6, image: image6 },
 ];
 
 export default function Hero() {
@@ -79,6 +23,9 @@ export default function Hero() {
   const [showText, setShowText] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const [isPaused, setIsPaused] = useState(false);
+  const wasPaused = useRef(false);
+  
   const handleSlideChange = (newIndex) => {
     if (newIndex === activeIndex || isTransitioning) return;
 
@@ -92,13 +39,29 @@ export default function Hero() {
     }, 400); 
   };
 
+  // --- TIMER WITH MEMORY ---
   useEffect(() => {
+    // 1. If paused, remember that we stopped!
+    if (isPaused) {
+      wasPaused.current = true;
+      return;
+    }
+
+    // 2. If we just unpaused, only wait 1 second to resume.
+    // Otherwise, use the standard 4 seconds.
+    let currentDelay = 4000;
+    if (wasPaused.current) {
+      currentDelay = 1000;
+      wasPaused.current = false; // Reset the memory
+    }
+
     const timer = setTimeout(() => {
       const nextIndex = (activeIndex + 1) % slidesData.length;
       handleSlideChange(nextIndex);
-    }, 4000);
+    }, currentDelay);
+    
     return () => clearTimeout(timer);
-  }, [activeIndex, isTransitioning]); 
+  }, [activeIndex, isTransitioning, isPaused]); 
 
   const getPositionClass = (index) => {
     const total = slidesData.length;
@@ -130,6 +93,12 @@ export default function Hero() {
               key={slide.id} 
               className={`carousel-item ${positionClass}`}
               onClick={() => handleSlideChange(index)}
+              
+              // Hover and Touch events are on the cards!
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
             >
               <div 
                 className="item-bg" 
@@ -137,14 +106,9 @@ export default function Hero() {
               />
 
               <div className={`item-content ${isActive && showText ? 'visible' : ''}`}>
-
-                {/* UPCOMING SHUFFLE TEXT */}
-                {slide.isUpcoming && (
-                  <ShuffleText text="UPCOMING" isActive={isActive && showText} />
-                )}
                 <h2 
                   className="item-title"
-                  style={{ backgroundImage: `url(${slide.pattern})` }}
+                  style={{ backgroundImage: `url(${textpattern})` }}
                 >
                   {slide.title}
                 </h2>
@@ -156,8 +120,6 @@ export default function Hero() {
           );
         })}
       </div>
-      
-     
     </div>
   );
 }
