@@ -3,7 +3,7 @@ import styles from './AboutUs.module.css'
 
 // 1. IMPORT JUST YOUR MAIN IMAGE HERE
 // (You can change 'shot3.png' to whichever one you want to feature!)
-import mainShot from '../assets/about/shot3.png' 
+import mainShot from '../assets/about/wall.jpeg' 
 
 export default function AboutUs() {
   return (
