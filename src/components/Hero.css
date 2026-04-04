@@ -29,7 +29,7 @@
   position: absolute; 
   top: 5%;
   height: 90%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 4 / 5;
   transform: translateX(-50%); 
   border-radius: 4px;
   overflow: hidden;
@@ -164,45 +164,45 @@
 /* =========================================
    Mobile Carousel Overrides
    ========================================= */
-/* =========================================
-   Mobile Carousel Overrides
-   ========================================= */
 @media (max-width: 768px) {
-  /* Added the missing '.' here! */
   .hero-carousel-container {
     height: 80dvh; 
     padding-top: 0px; 
     box-sizing: border-box;
   }
   
-  /* Make the cards shorter on mobile so they don't look like slivers */
   .carousel-item {
-    height: 65vh; /* Gives the poster a good height on mobile */
-    top: 50%; /* Centers vertically */
-    transform: translate(-50%, -50%); /* Adjust transform for true centering */
-    aspect-ratio: 2 / 3;
+    height: 60vh; 
+    max-width: 85vw;
+    top: 50%; 
+    /* Changed back to 2/3 so the box perfectly matches a standard movie poster */
+    aspect-ratio: 2 / 3; 
   }
   
   .pos-center {
-    
-    transform: translateX(-50%) translateZ(0px) rotateY(0deg);
-    
+    /* CRITICAL FIX: This MUST be translate(-50%, -50%) so it pulls back up to the center! */
+    transform: translate(-50%, -50%) translateZ(0px) rotateY(0deg);
   }
- .pos-center:hover {
-  transform: translateX(-50%) translateZ(40px) rotateX(-5deg) rotateY(0deg); /* Forward lift + static slight tilt on X-axis */
-  box-shadow: 0 35px 70px rgba(0,0,0,0.9); /* Even deeper shadow */
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smooth transition */
-}
-
-  /* Push side items almost completely off screen */
-  .pos-left-1 { left: 10%;
-    transform: translateX(-50%) translateZ(-150px) rotateY(40deg);
-  }
-  .pos-right-1 { left: 98%; 
-    transform: translateX(-50%) translateZ(-150px) rotateY(-40deg);
+  
+  .pos-center:hover {
+    /* Fixed here too */
+    transform: translate(-50%, -50%) translateZ(40px) rotateX(-5deg) rotateY(0deg); 
+    box-shadow: 0 35px 70px rgba(0,0,0,0.9); 
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; 
   }
 
-  /* Shrink title text so it doesn't get cut off */
+  .pos-left-1 { 
+    left: 10%;
+    /* Fixed here too */
+    transform: translate(-50%, -50%) translateZ(-150px) rotateY(40deg);
+  }
+  
+  .pos-right-1 { 
+    left: 98%; 
+    /* Fixed here too */
+    transform: translate(-50%, -50%) translateZ(-150px) rotateY(-40deg);
+  }
+
   .item-title {
     font-size: clamp(2.5rem, 12vw, 4rem);
     margin-bottom: 0.5rem;
@@ -219,5 +219,13 @@
     font-size: 1rem;
     letter-spacing: 4px;
     padding: 6px 12px;
+  }
+
+  .item-bg {
+    /* 'contain' guarantees the browser will NEVER crop the image */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; 
   }
 }

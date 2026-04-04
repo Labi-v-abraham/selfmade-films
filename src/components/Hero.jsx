@@ -6,6 +6,8 @@ import image4 from '../assets/carousel/PHOTO-2026-03-06-12-51-43.jpg';
 import image5 from '../assets/carousel/PHOTO-2026-03-23-20-46-12.jpg';
 import image6 from '../assets/carousel/IMG_8294.jpg';
 import image7 from '../assets/carousel/IMG_8300.png';
+import image8 from '../assets/carousel/elephant.png';
+
 
 import textpattern from '../assets/pattern/liquid glass.png';
 
@@ -16,6 +18,8 @@ const slidesData = [
   { id: 4, image: image4 },
   { id: 5, image: image5 },
   { id: 6, image: image6 },
+  { id: 7, image: image8 },
+
 ];
 
 export default function Hero() {

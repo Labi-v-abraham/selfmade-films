@@ -15,7 +15,7 @@ export default function AboutUs() {
           <ScrollReveal as="section" className={styles.aboutSection} once={false}>
             <h2 className={styles.sectionTitle}>About us</h2>
             <p className={styles.aboutText}>
-              SELFMADE FILMS Inc. is a Canadian independent entertainment company dedicated to high-impact, culturally resonant storytelling. Based in Scarborough, Ontario, the company is owned and operated by first-generation immigrants who bring a unique, global perspective to the North American cinematic landscape. We specialize in developing and producing bold independent cinema in both feature and short narrative with a particular focus on bridging the gap between South Asian narratives and international audiences.
+              SELFMADE FILMS Inc. is a Canadian independent entertainment company dedicated to high-impact, culturally resonant storytelling. Based in Toronto, Ontario, the company is owned and operated by first-generation immigrants who bring a unique, global perspective to the North American cinematic landscape. We specialize in developing and producing bold independent cinema in both feature and short narrative with a particular focus on bridging the gap between South Asian narratives and international audiences.
             </p>
             <br />
             <p className={styles.aboutText}>
