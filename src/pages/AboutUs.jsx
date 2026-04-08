@@ -3,7 +3,22 @@ import styles from './AboutUs.module.css'
 
 // 1. IMPORT JUST YOUR MAIN IMAGE HERE
 // (You can change 'shot3.png' to whichever one you want to feature!)
-import mainShot from '../assets/about/wall.jpeg' 
+
+import bts1 from '../assets/about/IMG_3173.webp'
+import bts2 from '../assets/about/IMG_3175.webp'
+import bts3 from '../assets/about/IMG_3178.webp'
+import bts4 from '../assets/about/IMG_3193.webp'
+import bts5 from '../assets/about/IMG_3196.webp'
+import bts6 from '../assets/about/IMG_3199.webp'
+import bts7 from '../assets/about/IMG_7946.webp'
+import bts8 from '../assets/about/IMG_7990.webp'
+import bts9 from '../assets/about/IMG_8569.webp'
+import bts10 from '../assets/about/IMG_8570.webp'
+
+
+
+
+const btsImages = [bts1, bts2, bts3, bts4, bts5, bts6, bts7, bts8, bts9, bts10];
 
 export default function AboutUs() {
   return (
@@ -31,22 +46,17 @@ export default function AboutUs() {
 
         {/* Right Side: The Single Image */}
         <aside className={styles.rightContent}>
-          <ScrollReveal delay={150} className={styles.imageWrapper} once={false}>
-            
-            <div className={styles.imageContainer}>
-              <img 
-                src={mainShot} 
-                alt="Selfmade Films Behind the Scenes" 
-                className={styles.singleImage} 
-              />
-            </div>
-
-            <div className={styles.imageCaption}>
-              <h3>THE SELFMADE LENS</h3>
-              {/* Removed the "Click to cycle" text */}
-              <p>Bold narratives crafted outside the traditional studio system.</p>
-            </div>
-
+          <ScrollReveal delay={150} className={styles.wallContainer} once={false}>
+            {btsImages.map((imgSrc, index) => (
+              <div key={index} className={styles.photoWrapper}>
+                <img 
+                  src={imgSrc} 
+                  alt={`Selfmade Films BTS ${index + 1}`} 
+                  className={styles.wallImage} 
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </ScrollReveal>
         </aside>
 

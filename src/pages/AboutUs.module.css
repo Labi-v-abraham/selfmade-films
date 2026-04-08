@@ -22,7 +22,37 @@
 
 .rightContent {
   width: 100%;
-  max-width: 450px; 
+  max-width: 550px; 
+  
+  /* 1. Set a maximum height (e.g., 600px or 70vh) so it stops growing */
+  max-height: 650px; 
+  
+  /* 2. Add a scrollbar ONLY to this right side when images overflow */
+  overflow-y: auto; 
+  overflow-x: hidden;
+  
+  /* 3. Add a little padding so the scrollbar doesn't touch the images */
+  padding-right: 12px; 
+}
+
+/* =========================================
+   Custom Cinematic Scrollbar
+   ========================================= */
+.rightContent::-webkit-scrollbar {
+  width: 4px; /* Super thin and sleek */
+}
+
+.rightContent::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.rightContent::-webkit-scrollbar-thumb {
+  background: var(--accent, #3b82f6); /* Uses your blue accent color */
+  border-radius: 10px;
+}
+
+.rightContent::-webkit-scrollbar-thumb:hover {
+  background: #2563eb; /* Slightly darker blue on hover */
 }
 
 .aboutSection {
@@ -49,57 +79,48 @@
 }
 
 /* =========================================
-   Single Image Layout
+   Clean Gallery Wall Layout
    ========================================= */
-.imageWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+.wallContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates a strict 2-column grid */
+  gap: 16px; /* Clean, uniform spacing between all frames */
   width: 100%;
+  padding-top: 20px;
 }
 
-.imageContainer {
-  width: 100%;
-  height: 450px; 
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* Individual photo wrapper acting as the "frame" */
+.photoWrapper {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden; /* Keeps the zoom effect inside the frame */
+  aspect-ratio: 4 / 3; /* Forces a uniform rectangle shape */
+  cursor: pointer;
+  background-color: #000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.singleImage {
+/* Make the 1st and 6th images span the whole width for a dynamic gallery look */
+.photoWrapper:nth-child(1),
+.photoWrapper:nth-child(6) {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9; /* Makes them wide cinematic rectangles */
+}
+
+/* The actual image styling inside the frame */
+.wallImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+  filter: brightness(0.7) grayscale(20%); /* Subtly muted for a moody gallery vibe */
 }
 
-/* Subtle cinematic zoom on hover */
-.imageContainer:hover .singleImage {
-  transform: scale(1.05); 
-}
-
-/* Caption underneath */
-.imageCaption {
-  margin-top: 20px;
-}
-
-.imageCaption h3 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent, #3b82f6);
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.imageCaption p {
-  font-family: 'Oswald', sans-serif;
-  font-size: 14px;
-  color: #a0a0a0;
-  line-height: 1.5;
-  letter-spacing: 1px;
+/* Sleek Hover Effect */
+.photoWrapper:hover .wallImage {
+  transform: scale(1.08); /* Gentle zoom */
+  filter: brightness(1.1) grayscale(0%); /* Pops into full bright color */
 }
 
 /* =========================================
@@ -120,8 +141,18 @@
     gap: 64px;
   }
   .rightContent {
-    max-width: 500px;
-    margin: 0 auto; /* Centers the image cleanly if the screen gets small */
+    max-width: 600px;
+    margin: 0 auto; 
+  }
+  
+  /* On tablets, switch to a 3-column grid */
+  .wallContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .photoWrapper:nth-child(1),
+  .photoWrapper:nth-child(6) {
+    grid-column: span 3;
   }
 }
 
@@ -133,7 +164,15 @@
     font-size: 14px;
     line-height: 1.7;
   }
-  .imageContainer {
-    height: 320px; /* Adjust height for mobile screens */
+  
+  /* On small phones, drop back to 2 columns */
+  .wallContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .photoWrapper:nth-child(1),
+  .photoWrapper:nth-child(6) {
+    grid-column: span 2;
   }
 }

@@ -69,7 +69,7 @@ function FilmCard({ film }) {
               {film.labelSub && <span className={styles.labelSub}>{film.labelSub}</span>}
             </div>
           )}
-          <div className={styles.watermark}>Selfmade Films Inc</div>
+          <div className={styles.watermark}>SELFMADE FILMS Inc</div>
         </div>
         <p className={styles.filmTitle}>{film.title}</p>
       </div>
