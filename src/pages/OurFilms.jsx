@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import ScrollReveal from '../components/ScrollReveal'
 import styles from './OurFilms.module.css'
-import avan from '../assets/films/avan.png'
-import shawdowimg from '../assets/films/hqdefault.png'
+import avan from '../assets/films/avan.webp'
+import shawdowimg from '../assets/films/hqdefault.webp'
 
 
 
-import adayalam from '../assets/upcoming/IMG_7970.jpg'
-import jeevan from '../assets/upcoming/jeevan.jpeg'
-import ant from '../assets/upcoming/ant.jpeg'
+import adayalam from '../assets/upcoming/IMG_7970.webp'
+import jeevan from '../assets/upcoming/jeevan.webp'
+import ant from '../assets/upcoming/ant.webp'
 
 
-import away from '../assets/development/away.png'
-// import ele from '../assets/development/ele.jpeg'
+import away from '../assets/development/away.webp'
+import ele from '../assets/development/el.webp'
 
 
 
@@ -34,7 +34,7 @@ const allFilms = [
 
 const inDevelopment = [
   { id: 1, title: 'An open gate away', thumb: away, youtubeLink: null, color: '#2a2a2a' },
-  // { id: 2, title: 'My father walks with elephants', thumb: ele, youtubeLink: null, color: '#2a2a2a' },
+  { id: 2, title: 'My father walks with elephants', thumb: ele, youtubeLink: null, color: '#2a2a2a' },
 
 
 ]

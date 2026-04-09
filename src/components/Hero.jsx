@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
-import image1 from '../assets/carousel/Shadows of the past v1.png';
-import image2 from '../assets/carousel/Second FINAL.jpg';
-import image4 from '../assets/carousel/PHOTO-2026-03-06-12-51-43.jpg';
-import image5 from '../assets/carousel/PHOTO-2026-03-23-20-46-12.jpg';
-import image6 from '../assets/carousel/IMG_8294.jpg';
-import image7 from '../assets/carousel/IMG_8300.png';
-import image8 from '../assets/carousel/elephant.png';
+import image1 from '../assets/carousel/Shadows of the past v1.webp';
+import image2 from '../assets/carousel/Second FINAL.webp';
+import image4 from '../assets/carousel/PHOTO-2026-03-06-12-51-43.webp';
+import image5 from '../assets/carousel/PHOTO-2026-03-23-20-46-12.webp';
+import image6 from '../assets/carousel/IMG_8294.webp';
+import image7 from '../assets/carousel/IMG_8300.webp';
+import image8 from '../assets/carousel/elephant.webp';
 
-
-import textpattern from '../assets/pattern/liquid glass.png';
+import textpattern from '../assets/pattern/liquidglass.webp';
 
 const slidesData = [
   { id: 1, image: image7 },
