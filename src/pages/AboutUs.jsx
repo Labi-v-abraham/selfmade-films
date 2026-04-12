@@ -24,7 +24,6 @@ import bts17 from '../assets/about/img7.webp'
 import bts18 from '../assets/about/img8.webp'
 import bts19 from '../assets/about/img9.webp'
 import bts20 from '../assets/about/img10.webp'
-import bts21 from '../assets/about/img11.webp'
 import bts22 from '../assets/about/img12.webp'
 
 
@@ -32,7 +31,7 @@ import bts22 from '../assets/about/img12.webp'
 
 
 
-const btsImages = [bts1, bts2, bts3, bts4, bts5, bts6, bts7, bts8, bts9, bts10, bts11, bts12, bts13, bts14, bts15, bts16, bts17, bts18, bts19, bts20, bts21, bts22];
+const btsImages = [bts1, bts2, bts3, bts4, bts5, bts6, bts7, bts8, bts9, bts10, bts11, bts12, bts13, bts14, bts15, bts16, bts17, bts18, bts19, bts20, bts22];
 
 export default function AboutUs() {
   return (
