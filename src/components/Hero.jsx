@@ -3,10 +3,11 @@ import './Hero.css';
 import image1 from '../assets/carousel/Shadows of the past v1.webp';
 import image2 from '../assets/carousel/Second FINAL.webp';
 import image4 from '../assets/carousel/PHOTO-2026-03-06-12-51-43.webp';
-import image5 from '../assets/carousel/PHOTO-2026-03-23-20-46-12.webp';
 import image6 from '../assets/carousel/IMG_8294.webp';
 import image7 from '../assets/carousel/IMG_8300.webp';
 import image8 from '../assets/carousel/elephant.webp';
+import image5 from '../assets/carousel/jeevan_poster.jpeg';
+
 
 import textpattern from '../assets/pattern/liquidglass.webp';
 

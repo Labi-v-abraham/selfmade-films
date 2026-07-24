@@ -3,11 +3,12 @@ import ScrollReveal from '../components/ScrollReveal'
 import styles from './OurFilms.module.css'
 import avan from '../assets/films/avan.webp'
 import shawdowimg from '../assets/films/hqdefault.webp'
+import jeevan from '../assets/films/jeevan.jpeg'
+
 
 
 
 import adayalam from '../assets/upcoming/IMG_7970.webp'
-import jeevan from '../assets/upcoming/jeevan.webp'
 import ant from '../assets/upcoming/ant.webp'
 
 
@@ -21,7 +22,6 @@ import ele from '../assets/development/el.webp'
 const upcoming = [
   { id: 1, title: 'Adayalam', thumb: adayalam, youtubeLink: null, color: '#2a2a2a' },
   { id: 2, title: 'An Ode to black ants', thumb: ant, youtubeLink: null, color: '#2a2a2a' },
-  { id: 3, title: 'Jeevan Marana Porattam', thumb: jeevan, youtubeLink: 'https://www.imdb.com/title/tt37807271/', color: '#2a2a2a' },
 
 ]
 
@@ -29,6 +29,8 @@ const upcoming = [
 const allFilms = [
   { id: 1, title: 'Avanum Avalum', thumb: avan, youtubeLink: 'https://www.youtube.com/watch?v=YocNLRqP2fQ&t=1s', color: '#2a2a2a' },
   { id: 2, title: 'Shadows of the past', thumb: shawdowimg, youtubeLink: 'https://www.youtube.com/watch?v=OMNb5Oj8MZg', color: '#2a2a2a' },
+  { id: 3, title: 'Jeevan Marana Porattam', thumb: jeevan, youtubeLink: 'https://www.youtube.com/watch?v=AYdQ-p19JFk', color: '#2a2a2a' },
+
 
 ]
 
